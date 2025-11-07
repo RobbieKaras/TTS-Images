@@ -1,6 +1,6 @@
 # Text-to-Speech Video Generator
 
-This project began as a collaboration with the developers of the **Daily Divine** Android and iOS app.  
+This project began as a collaboration with the developers of the **Daily Divine** iOS app.  
 The goal was to create a simple, automated way to apply **text-to-speech narration** to an image — turning written descriptions into engaging, narrated videos.
 
 The system works by using a **JSON file** that specifies:
