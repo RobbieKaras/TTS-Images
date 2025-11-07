@@ -78,10 +78,17 @@ for json_file in json_files:
             print(f"✅ '{video_filename}' already exists — skipping.")
             continue
 
-        # Image must exist
-        image_path = os.path.join(IMAGE_FOLDER, f"{entry_id}.png")
-        if not os.path.exists(image_path):
-            print(f"⚠️ Missing image for ID '{entry_id}', skipping.")
+        # --- Find matching image (PNG, JPG, or JPEG) ---
+        possible_exts = [".png", ".jpg", ".jpeg"]
+        image_path = None
+        for ext in possible_exts:
+            test_path = os.path.join(IMAGE_FOLDER, f"{entry_id}{ext}")
+            if os.path.exists(test_path):
+                image_path = test_path
+                break
+
+        if image_path is None:
+            print(f"⚠️ No image found for ID '{entry_id}', skipping.")
             continue
 
         print(f"🎬 Creating video for: {title}")
@@ -104,6 +111,7 @@ for json_file in json_files:
                     "end": w["end"]
                 })
 
+        # Fallback timing if Whisper fails
         if not words:
             split_words = description.split()
             avg = total_dur / len(split_words)
