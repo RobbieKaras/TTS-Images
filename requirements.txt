@@ -1,0 +1,5 @@
+gTTS
+moviepy==1.0.3
+Pillow
+openai-whisper
+torch  # whisper needs torch
