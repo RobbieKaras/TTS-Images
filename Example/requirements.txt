@@ -1,5 +1,6 @@
-gTTS
 moviepy==1.0.3
-Pillow
-openai-whisper
-torch  # whisper needs torch
+Pillow==10.2.0
+gTTS==2.5.1
+openai-whisper==20231117
+typing-extensions>=4.5.0
+faster-whisper==1.0.3
